@@ -29,7 +29,7 @@ public class SqlService {
     }
 
     public Map<String, Object> execute(String sql) throws Exception {
-        return executeWithLimit(sql, Integer.MAX_VALUE);
+        return executeWithLimit(sql, props.getMaxRows());
     }
 
     public Map<String, Object> executeWithLimit(String sql, int limitRows) throws Exception {
@@ -55,7 +55,7 @@ public class SqlService {
             }
 
             // вот тут и есть limitRows
-            if (limitRows > 0 && limitRows != Integer.MAX_VALUE) {
+            if (limitRows > 0 && limitRows != props.getMaxRows()) {
                 st.setMaxRows(limitRows);
             }
 

@@ -6,7 +6,7 @@ app:
     # Thin JDBC URL (будет работать и с embedded, если тонкий порт совпадает)
     jdbcUrl: jdbc:ignite:thin://127.0.0.1:10800
     queryTimeoutSeconds: 10
-    maxRows: 500
+    maxRows: 1000000
 
     embedded:
       enabled: false
