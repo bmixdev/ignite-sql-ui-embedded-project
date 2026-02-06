@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ignite SQL UI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <h1>Ignite SQL Console</h1>
+    <button id="themeBtn" type="button" class="btn-secondary" aria-label="Переключить тему">
+      🌙 Тёмная
+    </button>
+  </div>
+
+  <section class="card">
+    <div class="card-h">
+      <h2>Diagnostics</h2>
+      <div class="card-actions">
+        <button id="refreshDiag">Refresh</button>
+      </div>
+    </div>
+    <div id="diagMeta" class="meta muted">—</div>
+    <div id="diagOut" class="diag-grid"></div>
+  </section>
+
+  <section class="card">
+    <div class="card-h">
+      <h2>SQL</h2>
+      <div class="card-actions">
+        <button id="run">Run</button>
+      </div>
+    </div>
+
+    <textarea id="sql" spellcheck="false">SELECT 1 AS one</textarea>
+
+    <div class="row">
+      <span id="hint" class="muted">Ctrl+Enter to run</span>
+      <span id="meta" class="meta"></span>
+    </div>
+
+    <h3>HTML result</h3>
+    <div id="tableWrap" class="table-wrap"></div>
+
+    <h3>JSON</h3>
+    <pre id="out"></pre>
+  </section>
+
+  <section class="card">
+    <div class="card-h">
+      <h2>API</h2>
+    </div>
+    <div class="muted">
+      Swagger: <a href="/swagger-ui.html">/swagger-ui.html</a><br>
+      SQL API: <code>POST /api/sql</code><br>
+      Ignite overview: <code>GET /api/ignite/overview</code>
+    </div>
+  </section>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

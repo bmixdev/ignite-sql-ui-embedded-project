@@ -1,0 +1,34 @@
+server:
+  port: 8080
+
+app:
+  ignite:
+    # Thin JDBC URL (будет работать и с embedded, если тонкий порт совпадает)
+    jdbcUrl: jdbc:ignite:thin://127.0.0.1:10800
+    queryTimeoutSeconds: 10
+    maxRows: 500
+
+    embedded:
+      enabled: false
+      instanceName: ignite-embedded
+      # Важно: Ignite 2.16 требует ABSOLUTE путь (для Windows используй D:/...)
+      workDir: "D:/Project/Java/ignite-work"
+      thinPort: 10800
+      persistenceEnabled: false
+
+  security:
+    mode: none   # none | fakelogin | keycloak
+
+
+logging:
+  pattern:
+    console: "%d{HH:mm:ss.SSS} %-5level [%thread] %logger{36} - %msg%n"
+  level:
+    root: INFO
+    com.com.example.service.SqlService: DEBUG   # если хочешь видеть SQL preview и preview строк
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /v3/api-docs

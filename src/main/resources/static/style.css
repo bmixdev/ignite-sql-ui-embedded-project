@@ -1,0 +1,241 @@
+/* =========================
+   THEME (light/dark)
+   ========================= */
+
+/* значения по умолчанию: светлая */
+html {
+    color-scheme: light;
+    --bg: #f5f6f8;
+    --fg: #1f2933;
+    --muted: #5b6b7a;
+    --meta: #334155;
+
+    --card-border: rgba(2, 6, 23, .14);
+    --card-bg: rgba(255,255,255,.92);
+
+    --input-border: rgba(2, 6, 23, .14);
+    --input-bg: rgba(2, 6, 23, .03);
+
+    --btn-border: rgba(37, 99, 235, .35);
+    --btn-bg: rgba(37, 99, 235, .10);
+    --btn-bg-hover: rgba(37, 99, 235, .14);
+
+    --link: #1d4ed8;
+
+    --grid-bg: rgba(255,255,255,.92);
+    --grid-border: rgba(2, 6, 23, .14);
+    --grid-row-border: rgba(2, 6, 23, .08);
+    --grid-col-border: rgba(2, 6, 23, .06);
+    --grid-th-bg: rgba(2, 6, 23, .06);
+    --grid-hover: rgba(37, 99, 235, .06);
+
+    --empty-color: #5b6b7a;
+    --empty-border: rgba(2, 6, 23, .20);
+
+    --diag-card-border: rgba(2, 6, 23, .12);
+    --diag-card-bg: rgba(2, 6, 23, .02);
+    --diag-title: #1d4ed8;
+    --diag-bad: #b42318;
+
+    --btn2-border: rgba(2, 6, 23, .18);
+    --btn2-bg: rgba(2, 6, 23, .04);
+    --btn2-bg-hover: rgba(2, 6, 23, .07);
+}
+
+/* тёмная тема */
+html[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #0b0f14;
+    --fg: #e7edf6;
+    --muted: #9bb0c9;
+    --meta: #b7c7dd;
+
+    --card-border: rgba(255,255,255,.12);
+    --card-bg: rgba(0,0,0,.20);
+
+    --input-border: rgba(255,255,255,.12);
+    --input-bg: rgba(0,0,0,.25);
+
+    --btn-border: rgba(125,211,252,.28);
+    --btn-bg: rgba(125,211,252,.10);
+    --btn-bg-hover: rgba(125,211,252,.14);
+
+    --link: #dbeafe;
+
+    --grid-bg: rgba(0,0,0,.18);
+    --grid-border: rgba(255,255,255,.12);
+    --grid-row-border: rgba(255,255,255,.08);
+    --grid-col-border: rgba(255,255,255,.06);
+    --grid-th-bg: rgba(0,0,0,.38);
+    --grid-hover: rgba(125,211,252,.06);
+
+    --empty-color: #9bb0c9;
+    --empty-border: rgba(255,255,255,.18);
+
+    --diag-card-border: rgba(255,255,255,.10);
+    --diag-card-bg: rgba(255,255,255,.03);
+    --diag-title: #cfe3ff;
+    --diag-bad: #ffb4b4;
+
+    --btn2-border: rgba(255,255,255,.16);
+    --btn2-bg: rgba(255,255,255,.06);
+    --btn2-bg-hover: rgba(255,255,255,.09);
+}
+
+/* =========================
+   BASE STYLES (твои, но на переменных)
+   ========================= */
+
+body {
+    margin: 0;
+    font-family: system-ui, Segoe UI, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+}
+
+.wrap { max-width: 1100px; margin: 0 auto; padding: 18px 14px; }
+
+.topbar{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap: 10px;
+}
+
+h1 { margin: 0 0 14px; font-size: 20px; }
+
+.card {
+    border: 1px solid var(--card-border);
+    background: var(--card-bg);
+    border-radius: 14px;
+    padding: 12px;
+    margin-bottom: 12px;
+}
+
+.card-h {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.card h2 { margin: 0; font-size: 16px; }
+.card h3 { margin: 12px 0 6px; font-size: 13px; color: var(--diag-title); }
+
+.card-actions { display: flex; gap: 8px; }
+
+.muted { color: var(--muted); }
+.meta { color: var(--meta); }
+
+textarea {
+    width: 100%;
+    height: 190px;
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid var(--input-border);
+    background: var(--input-bg);
+    color: var(--fg);
+    font-family: ui-monospace, Menlo, Consolas, monospace;
+    box-sizing: border-box;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+button {
+    padding: 8px 12px;
+    border-radius: 12px;
+    border: 1px solid var(--btn-border);
+    background: var(--btn-bg);
+    color: var(--fg);
+    cursor: pointer;
+}
+button:hover { background: var(--btn-bg-hover); }
+
+.btn-secondary{
+    border: 1px solid var(--btn2-border);
+    background: var(--btn2-bg);
+    white-space: nowrap;
+}
+.btn-secondary:hover{ background: var(--btn2-bg-hover); }
+
+pre {
+    margin: 0;
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid var(--input-border);
+    background: var(--input-bg);
+    overflow: auto;
+    max-height: 380px;
+}
+
+.table-wrap { margin-top: 8px; overflow: auto; border-radius: 12px; }
+
+.grid {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 520px;
+    background: var(--grid-bg);
+    border: 1px solid var(--grid-border);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.grid th, .grid td {
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--grid-row-border);
+    border-right: 1px solid var(--grid-col-border);
+    vertical-align: top;
+    white-space: nowrap;
+}
+
+.grid th {
+    position: sticky;
+    top: 0;
+    background: var(--grid-th-bg);
+    text-align: left;
+    font-weight: 600;
+}
+
+.grid tr:hover td { background: var(--grid-hover); }
+
+.empty {
+    padding: 10px;
+    color: var(--empty-color);
+    border: 1px dashed var(--empty-border);
+    border-radius: 12px;
+}
+
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.diag-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.diag-card {
+    border: 1px solid var(--diag-card-border);
+    border-radius: 12px;
+    padding: 10px;
+    background: var(--diag-card-bg);
+    overflow: hidden;
+}
+
+.diag-title { font-weight: 700; font-size: 12px; color: var(--diag-title); }
+.diag-stat { margin-top: 6px; color: var(--meta); font-size: 12px; }
+.diag-hint { margin-top: 6px; color: var(--muted); font-size: 12px; }
+.diag-mini { margin-top: 8px; }
+
+.diag-bad { margin-top: 8px; color: var(--diag-bad); font-size: 12px; }
+
+@media (max-width: 900px) {
+    .diag-grid { grid-template-columns: 1fr; }
+}
