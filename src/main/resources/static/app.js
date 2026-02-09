@@ -71,7 +71,7 @@ async function runSql() {
   const t0 = performance.now();
 
   try {
-    const r = await fetch("/api/sql", {
+    const r = await fetch("api/sql", {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({sql})
@@ -151,7 +151,7 @@ async function refreshDiagnostics() {
   const t0 = performance.now();
 
   try {
-    const r = await fetch("/api/ignite/overview");
+    const r = await fetch("api/ignite/overview");
     const payload = await r.json();
 
     if (!payload.ok) {

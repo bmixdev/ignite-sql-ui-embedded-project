@@ -69,12 +69,15 @@ public class SecurityConfig {
                 .csrf().disable()
                 .authorizeRequests(a -> a
                         // страницу логина Spring Security оставляем доступной
-                        .antMatchers("/api/health","/login", "/error", "/api/ready").permitAll()
+                        .antMatchers("/login.html","/api/health","/login", "/error", "/api/ready").permitAll()
                         .antMatchers("/api/shutdown").authenticated()
                         .anyRequest().authenticated()
                 )
                 .authenticationProvider(acceptAnyCredentialsProvider())
-                .formLogin(Customizer.withDefaults())
+                .formLogin(f -> f
+                        .loginPage("/login.html")
+                        .loginProcessingUrl("/login")
+                        .permitAll())
                 .logout(l -> l.logoutSuccessUrl("/login"))
                 .httpBasic();
 
